@@ -44,4 +44,4 @@ app.config["DEBUG"] = True
 @app.route('/', methods=['GET'])
 def api_all():
          return jsonify(json_object)
-app.run(host='127.0.0.1', port=5000, debug=True)
+app.run(host='127.0.0.1', port=6000, debug=True)
