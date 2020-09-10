@@ -2,6 +2,7 @@ import requests
 import sys
 from bs4 import BeautifulSoup
 import json
+import os
 
 url = "https://www.brainyquote.com/topics/life-quotes"
 
@@ -36,12 +37,13 @@ import gunicorn
 from flask import request, jsonify
 
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
-
 
 
 # A route to return all of the available entries in our catalog.
 @app.route('/', methods=['GET'])
 def api_all():
          return jsonify(json_object)
-app.run(host='0.0.0.0', port=5000, debug=True)
+        
+port = int(os.environ.get('PORT', 5000))       
+if __name__ == "__main__":
+    app.run(host='127.0.0.1', port=5000, debug=True)
